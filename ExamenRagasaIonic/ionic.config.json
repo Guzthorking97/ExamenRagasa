@@ -1,0 +1,7 @@
+{
+  "name": "todolistragasa",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

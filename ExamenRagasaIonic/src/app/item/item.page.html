@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ !editar ? 'Nuevo elemento' : 'Editar elemento'}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Titulo</ion-label>
+    <ion-input required="true" type="text" [(ngModel)]="elemento.titulo"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Detalle</ion-label>
+    <ion-textarea required="true" autoGrow="true" [(ngModel)]="elemento.detalle"></ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-label>Completada</ion-label>
+    <ion-checkbox slot="end" [(ngModel)]="elemento.completada"></ion-checkbox>
+  </ion-item>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+    <ion-fab-button color="warning">
+      <ion-icon name="list-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="danger" (click)="eliminarTodoItem()" *ngIf=" editar ">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-fab-button> 
+      <ion-fab-button color="success" (click)="saveTodoItem()" >
+        <ion-icon name="save-outline"></ion-icon>
+      </ion-fab-button> 
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      To-Do List
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-searchbar 
+    placeholder="Buscar titulo"
+    mode="ios"
+    inputmode="text"
+    (ionChange)="onSearchTitulo($event)"
+    [debounce]="250"
+    animated
+    showCancelButton="focus"
+    (ionCancel)="onSearchCancel()"
+    >
+  </ion-searchbar>
+
+  <ion-card *ngFor="let item of todoitems" (click)="addoredit(true, item)">
+    <ion-item color="{{ item.completada ? 'success' : 'warning' }}">
+      <ion-icon slot="start" name="{{ item.completada ? 'checkmark-circle-outline' : 'close-circle-outline' }}"></ion-icon>
+      <ion-label>{{ item.titulo }}</ion-label>
+    </ion-item>
+    <ion-card-content>
+      {{ item.detalle }}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+    <ion-fab-button color="warning">
+      <ion-icon name="list-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="danger" (click)="eliminarTodoList()">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-fab-button> 
+      <ion-fab-button color="success" (click)="addoredit(false, {})">
+        <ion-icon name="add-outline"></ion-icon>
+      </ion-fab-button> 
+      <ion-fab-button color="warning" (click)="onSearchCancel()">
+        <ion-icon name="refresh-circle-outline"></ion-icon>
+      </ion-fab-button> 
+    </ion-fab-list>
+  </ion-fab>
+
+  
+
+</ion-content>
