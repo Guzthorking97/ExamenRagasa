@@ -1,0 +1,24 @@
+{
+  "name": "serviciostodolist",
+  "version": "1.0.0",
+  "description": "API RESTful de Node.JS + Express.JS y MongoDB",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ragasa",
+    "hectorguzman",
+    "ionic",
+    "nodejs",
+    "expressjs",
+    "mongodb"
+  ],
+  "author": "hectorguzman",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "mongoose": "^6.3.2"
+  }
+}
